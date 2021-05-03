@@ -1,24 +1,34 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
 
-class Tabl(db.Model):
+class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
-    status = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.Integer, default=0)
 
     def __repr__(self):
         return '<Item %r>' % self.id
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    if request.method == 'POST':
+        item_content = request.form['content']
+        new_item = Item(content=item_content)
+
+        try:
+            db.session.add(new_item)
+            db.session.commit()
+            return redirect('/')
+        except Exception as inst:            
+            return 'Error: Failed to add Item'
+    else:
+        items = Item.query.order_by(Item.status).all()
+        return render_template('index.html', items=items)
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
 
