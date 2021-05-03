@@ -5,5 +5,29 @@
 {% endblock %}
 
 {% block body %}
-<h1>Template</h1>
+<div>
+    <h3 class="container">Item Tracker</h3>
+
+    <ul>
+        <li class="item">
+            Item 1
+            <button>Update</button>
+            <button>Delete</button>
+        </li>
+        <li class="item">
+            Item 2
+            <button>Update</button>
+            <button>Delete</button>
+        </li><li class="item">
+            Item 3
+            <button>Update</button>
+            <button>Delete</button>
+        </li>
+    </ul>
+
+    <form action="/" method="POST" class="form">
+        <input type="text" name="content" id="content">
+        <button type="submit">Add Item</button>
+    </form>
+</div>
 {% endblock %}

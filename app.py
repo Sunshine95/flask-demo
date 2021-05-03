@@ -13,7 +13,7 @@ class Tabl(db.Model):
     def __repr__(self):
         return '<Item %r>' % self.id
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
     return render_template('index.html')
 
