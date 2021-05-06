@@ -1,4 +1,5 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask 
+from flask import render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -54,6 +55,5 @@ def update(id):
         print(inst)
         return 'Error: Failed to update Item status'
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
+# if __name__ == "__main__":
+#     app.run(debug=True)
