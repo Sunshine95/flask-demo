@@ -1,3 +1,2 @@
-Dockerfile
-.wsgi.py
-.Procfile
+__pycache__
+ENV/
