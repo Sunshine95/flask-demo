@@ -1,6 +1,6 @@
 import multiprocessing
 
-bind = "127.0.0.1:5105"
+bind = "0.0.0.0:5105"
 workers = multiprocessing.cpu_count() * 2 + 1
 reload = True
 worker_class ='flask_sockets.worker'
