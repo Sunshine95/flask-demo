@@ -1,20 +1,23 @@
 # flask-CRUD-app
 An app to keep track of items while I move house.
 
+```
 virtualenv venv
 source activate/bin/source
 pip install -r requirement.txt
 python app/app.py
+```
 
 # wsgi 
-wsgi.py is the entrypoint
-python wsgi.py
+wsgi.py is the entrypoint\
 
-use the server of your choice.
+```python wsgi.py```
+
+Use the server of your choice.
 
 # guincorn
-seve with gunicorn
-gunicorn -c config/gunicorn.py wsgi:app
+Seve with gunicorn
+```gunicorn -c config/gunicorn.py wsgi:app```
 
 Listens on port 5105. Settings in config/gunicorn.py
 
