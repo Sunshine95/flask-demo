@@ -6,7 +6,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-db.create_all()
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -16,6 +15,7 @@ class Item(db.Model):
     def __repr__(self):
         return '<Item %r>' % self.id
 
+db.create_all()
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
