@@ -4,7 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+<<<<<<< HEAD:app/app.py
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False;
+=======
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+>>>>>>> main:app/main.py
 db = SQLAlchemy(app)
 db.create_all()
 
@@ -60,3 +64,7 @@ def update(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
+<<<<<<< HEAD:app/app.py
+
+=======
+>>>>>>> main:app/main.py
