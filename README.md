@@ -6,5 +6,6 @@ wsgi.py entrypoint
 eg. seve with gunicorn
 gunicorn -c config/gunicorn.py wsgi:app
 
-Containerized
-Put behind gurnicon
+# Containerized
+docker build -t "image/name"
+docker run --network=host "image/name"
