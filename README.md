@@ -7,5 +7,5 @@ eg. seve with gunicorn
 gunicorn -c config/gunicorn.py wsgi:app
 
 # Containerized
-docker build -t "image/name"
-docker run --network=host "image/name"
+```docker build -t "image/name" ``` \
+```docker run --network=host "image/name"```
