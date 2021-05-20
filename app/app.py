@@ -1,11 +1,13 @@
 from flask import Flask 
 from flask import render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,6 +21,13 @@ db.create_all()
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
+
+    colours = {
+        'red' : os.environ['RED'],
+        'yellow' : os.environ['YELLOW'],
+        'green' : os.environ['GREEN']
+    }
+
     if request.method == 'POST':
         item_content = request.form['content']
         new_item = Item(content=item_content)
@@ -31,7 +40,7 @@ def index():
             return 'Error: Failed to add Item'
     else:
         items = Item.query.order_by(Item.status).all()
-        return render_template('index.html', items=items)
+        return render_template('index.html', items=items, colours=colours)
 
 @app.route('/delete/<int:id>')
 def delete(id):

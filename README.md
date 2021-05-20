@@ -3,7 +3,7 @@ An app to keep track of items while I move house.
 
 ```
 virtualenv venv
-source activate/bin/source
+source venv/bin/activate
 pip install -r requirement.txt
 python app/app.py
 ```

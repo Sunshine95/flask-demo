@@ -14,19 +14,19 @@
             {{ item.content }}
             
             {% if item.status == 0 %}
-            <a href="/update/{{item.id}}" style="background-color: rgb(187, 37, 37);">
+            <a href="/update/{{item.id}}" style="background-color: {{colours['red']}} ;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
             {% endif %}
             
             {% if item.status == 1 %}
-            <a href="/update/{{item.id}}" style="background-color: rgb(214, 194, 41);">
+            <a href="/update/{{item.id}}" style="background-color: {{colours['yellow']}} ;">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
             {% endif %}
             
             {% if item.status == 2 %}
-            <a href="/update/{{item.id}}" style="background-color: rgb(56, 203, 37);">
+            <a href="/update/{{item.id}}" style="background-color: {{colours['green']}};">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
             {% endif %}
